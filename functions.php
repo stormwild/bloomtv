@@ -131,12 +131,21 @@ add_action( 'widgets_init', 'bloomtv_widgets_init' );
  * Enqueue scripts and styles
  */
 function bloomtv_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
+    //wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css' );
+	
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+
+	wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/bootstrap-responsive.min.css' );
+	
+	wp_enqueue_script( 'jquery', '/wp-includes/js/jquery/jquery.js', '', '', true );
+	
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
+	
 	wp_enqueue_script( 'skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '2.3.1', true);
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -150,4 +159,9 @@ add_action( 'wp_enqueue_scripts', 'bloomtv_scripts' );
 /**
  * Implement the Custom Header feature
  */
-//require( get_template_directory() . '/inc/custom-header.php' );
+require( get_template_directory() . '/inc/custom-header.php' );
+
+/**
+ * Implement custom walker nav menu
+*/
+require( get_template_directory() . '/inc/twitter_bootstrap_nav_walker.php' );
