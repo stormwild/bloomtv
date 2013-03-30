@@ -138,6 +138,8 @@ function bloomtv_scripts() {
 
 	wp_enqueue_style( 'bootstrap-responsive', get_template_directory_uri() . '/css/bootstrap-responsive.min.css' );
 	
+	wp_enqueue_style( 'bloomtv', get_template_directory_uri() . '/css/bloomtv.css' );
+	
 	wp_enqueue_script( 'jquery', '/wp-includes/js/jquery/jquery.js', '', '', true );
 	
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
